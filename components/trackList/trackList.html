@@ -1,0 +1,28 @@
+<spinner ng-show="vm.loader.show"></spinner>
+<md-card id="track-list">
+    <md-list>
+        <md-subheader class="md-no-sticky main-header">Music Tracks</md-subheader>
+        <div class="md-subheader-inner main-header">
+            <md-button class="md-accent md-hue-2" ng-click="vm.onClickNewTrack()">New Track</md-button>
+            <md-button class="md-accent md-hue-3" ng-click="vm.onClickGenreList()">List Genres</md-button>
+        </div>
+        <md-divider></md-divider>
+        <md-list-item class="md-2-line" ng-repeat="track in vm.tracks" ng-click="vm.onClickTrack(track)">
+            <div class="md-list-item-text" layout="column">
+                <h3>
+                    {{track.title}} [
+                    <span ng-repeat="genre in track.genres">{{genre.name}}{{!$last ? ', ': ''}}</span>
+                    ]
+                <star-rating rating-value="track.rating" 
+                             data-max="5">
+                </star-rating>
+                </h3>
+            </div>
+            <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+    </md-list>
+    <div class="md-subheader-inner main-header">
+        <md-button class="md-accent md-raised" ng-click="vm.onClickBackPage()" ng-disabled="!vm.backPage">Back</md-button>
+        <md-button class="md-accent md-raised" ng-click="vm.onClickNextPage()" ng-disabled="!vm.nextPage">Next</md-button>
+    </div>
+</md-card>

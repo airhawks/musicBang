@@ -1,0 +1,48 @@
+<md-dialog class="track-view" ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{vm.title}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.onClickCancel()">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div layout="column" class="dialog-content">
+            <md-content layout="column" class="md-padding" flex>
+                <md-input-container>
+                    <label>Title</label>
+                    <input ng-model="vm.track.title">
+                </md-input-container>
+                <md-input-container  class="md-icon-float md-block">
+                    <label>Rating</label>
+                    <input ng-model="vm.track.rating" >
+                    <star-rating rating-value="vm.track.rating"
+                         data-max="5" on-rating-selected="vm.onRatingSelected(rating)">
+                    </star-rating>
+                </md-input-container>
+                <md-input-container>
+                    <label>Genres</label>
+                    <md-select multiple="true" ng-model="vm.selectedGenres"  placeholder="Select genres">
+                        <md-option ng-repeat="genre in vm.genres" value="{{genre.id}}">
+                            {{genre.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </md-content>
+        </div>
+    </md-dialog-content>
+    
+    <md-dialog-actions layout="row">
+      <div class="md-toolbar-tools">
+        <span flex></span>
+        <md-button class="md-primary md-raised md-hue-1" ng-click="vm.onClickOk()">
+            Ok
+        </md-button>
+        <md-button class="md-primary md-raised md-hue-1" ng-click="vm.onClickCancel()">
+            Cancel
+        </md-button>
+      </div>
+    </md-dialog-actions>
+</md-dialog>

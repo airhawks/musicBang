@@ -1,0 +1,7 @@
+<div class="star-rating">
+    <ul class="rating">
+         <li ng-repeat="star in stars" ng-class="star"
+             ng-click="toggle($index)">&#9733;</li>
+    </ul>
+    {{onRatingSelected ? '' : ratingValue}}
+</div>

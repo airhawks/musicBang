@@ -1,0 +1,33 @@
+<md-dialog class="genre-view" ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{vm.title}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.onClickCancel()">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div layout="row" class="dialog-content">
+            <md-content class="md-padding" flex>
+                <md-input-container>
+                    <label>Genre</label>
+                    <input ng-model="vm.genre.name">
+                </md-input-container>
+            </md-content>
+        </div>
+    </md-dialog-content>
+    
+    <md-dialog-actions layout="row">
+      <div class="md-toolbar-tools">
+        <span flex></span>
+        <md-button class="md-primary md-raised md-hue-1" ng-click="vm.onClickOk()">
+            Ok
+        </md-button>
+        <md-button class="md-primary md-raised md-hue-1" ng-click="vm.onClickCancel()">
+            Cancel
+        </md-button>
+      </div>
+    </md-dialog-actions>
+</md-dialog>
